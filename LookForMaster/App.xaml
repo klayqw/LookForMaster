@@ -1,9 +1,21 @@
 ﻿<Application x:Class="LookForMaster.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:LookForMaster.ViewModels"
+             xmlns:v="clr-namespace:LookForMaster.Views"
              xmlns:local="clr-namespace:LookForMaster"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        
+
+        <DataTemplate DataType="{x:Type vm:LoginPageViewModel}">
+            <v:LoginPage/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:SignUpPageViewModel}">
+            <v:SignUpPage/>
+        </DataTemplate>
+
+
     </Application.Resources>
 </Application>

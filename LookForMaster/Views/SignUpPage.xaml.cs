@@ -13,16 +13,15 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LookForMaster
+namespace LookForMaster.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for SignUpPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SignUpPage : UserControl
     {
-        public MainWindow()
+        public SignUpPage()
         {
-            
             InitializeComponent();
         }
     }

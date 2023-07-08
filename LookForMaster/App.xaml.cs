@@ -5,13 +5,40 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using LookForMaster.ViewModels;
+using SimpleInjector;
 
-namespace LookForMaster
+namespace LookForMaster;
+
+public partial class App : Application
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
-    public partial class App : Application
+    public static Container DIContainer = new Container();
+
+    protected override void OnStartup(StartupEventArgs e)
     {
+        base.OnStartup(e);
+
+        ConfigureConatiner();
+
+        WindowStartUp();
+
     }
+
+
+    private void ConfigureConatiner()
+    {
+
+    }
+
+    private void WindowStartUp()
+    {
+        var mainView = new MainWindow();
+        var mainViewModel = DIContainer.GetInstance<MainViewModel>();
+        mainViewModel.ActiveViewModel = DIContainer.GetInstance<LoginPageViewModel>();
+        mainView.DataContext = mainViewModel;
+
+        mainView.ShowDialog();
+    }
+
+
 }
