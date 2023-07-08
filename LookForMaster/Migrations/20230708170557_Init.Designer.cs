@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LookForMaster.Migrations
 {
     [DbContext(typeof(LookForMasterDbContext))]
-    [Migration("20230708164607_init")]
-    partial class init
+    [Migration("20230708170557_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,24 +24,6 @@ namespace LookForMaster.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("LookForMaster.Models.Admin", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Admins");
-                });
 
             modelBuilder.Entity("LookForMaster.Models.Card", b =>
                 {
@@ -175,17 +157,6 @@ namespace LookForMaster.Migrations
                     b.HasIndex("CardId");
 
                     b.ToTable("User");
-                });
-
-            modelBuilder.Entity("LookForMaster.Models.Admin", b =>
-                {
-                    b.HasOne("LookForMaster.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("LookForMaster.Models.Customer", b =>

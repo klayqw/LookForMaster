@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace LookForMaster.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class Init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -58,25 +58,6 @@ namespace LookForMaster.Migrations
                         name: "FK_User_Cards_CardId",
                         column: x => x.CardId,
                         principalTable: "Cards",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Admins",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Admins", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Admins_User_UserId",
-                        column: x => x.UserId,
-                        principalTable: "User",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -146,11 +127,6 @@ namespace LookForMaster.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Admins_UserId",
-                table: "Admins",
-                column: "UserId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Customers_UserId",
                 table: "Customers",
                 column: "UserId");
@@ -179,9 +155,6 @@ namespace LookForMaster.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Admins");
-
             migrationBuilder.DropTable(
                 name: "Customers");
 
