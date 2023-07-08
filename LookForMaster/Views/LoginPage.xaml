@@ -15,125 +15,13 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <!--#region Top Section-->
-        <Border 
-            BorderThickness="0 0 0 2"
-            BorderBrush="Transparent"
-            CornerRadius="5 5 0 0"
-            Background="Transparent"
-            Padding="10"
-            MouseDown="Border_MouseDown"
-            MouseLeftButtonDown="Border_MouseLeftButtonDown"
-            Height="40">
-
-            <StackPanel
-                HorizontalAlignment="Right"
-                Orientation="Horizontal">
-
-                <!--#region Window Minimize Button-->
-                <Grid Margin="15 0 0 0">
-                    <Button 
-                        x:Name="WindowMinimizeButton"
-                        BorderBrush="Transparent"
-                        Background="Transparent"
-                        VerticalAlignment="Top"
-                        Width="18" Height="18" 
-                        HorizontalAlignment="Right"
-                        Click="WindowMinimizeButton_Click"
-                        MouseEnter="WindowMinimizeButton_MouseEnter"
-                        MouseLeave="WindowMinimizeButton_MouseLeave"/>
-                    <materialDesign:PackIcon
-                        x:Name="WindowMinimizeIcon"
-                        Kind="WindowMinimize" 
-                        Foreground="Gray"
-                        VerticalAlignment="Top"
-                        Width="18" Height="18" 
-                        HorizontalAlignment="Right"/>
-                    <Button
-                        VerticalAlignment="Top"
-                        Width="18" 
-                        Height="18" 
-                        HorizontalAlignment="Right"
-                        Background="Transparent" 
-                        BorderBrush="Transparent"
-                        Click="WindowMinimizeButton_Click"
-                        MouseEnter="WindowMinimizeButton_MouseEnter"
-                        MouseLeave="WindowMinimizeButton_MouseLeave"/>
-                </Grid>
-                <!--#endregion-->
-
-                <!--#region Window Maximize Button-->
-                <Grid Margin="15 0 0 0">
-                    <Button 
-                        x:Name="WindowMaximizeButton"
-                        BorderBrush="Transparent"
-                        Background="Transparent"
-                        VerticalAlignment="Top"
-                        Width="18" Height="18" 
-                        HorizontalAlignment="Right"
-                        Click="WindowMaximizeButton_Click"
-                        MouseEnter="WindowMaximizeButton_MouseEnter"
-                        MouseLeave="WindowMaximizeButton_MouseLeave"/>
-                    <materialDesign:PackIcon
-                        x:Name="WindowMaximizeIcon"
-                        Kind="WindowMaximize" 
-                        Foreground="Gray"
-                        VerticalAlignment="Top"
-                        Width="18" Height="18" 
-                        HorizontalAlignment="Right"/>
-                    <Button
-                        VerticalAlignment="Top"
-                        Width="18" 
-                        Height="18" 
-                        HorizontalAlignment="Right"
-                        Background="Transparent" 
-                        BorderBrush="Transparent"
-                        Click="WindowMaximizeButton_Click"
-                        MouseEnter="WindowMaximizeButton_MouseEnter"
-                        MouseLeave="WindowMaximizeButton_MouseLeave"/>
-                </Grid>
-                <!--#endregion-->
-
-                <!--#region Window Close Button-->
-                <Grid Margin="15 0 0 0">
-                    <Button 
-                        x:Name="WindowCloseButton"
-                        BorderBrush="Transparent"
-                        Background="Transparent"
-                        VerticalAlignment="Top"
-                        Width="18" Height="18" 
-                        HorizontalAlignment="Right"
-                        Click="WindowCloseButton_Click"
-                        MouseEnter="WindowCloseButton_MouseEnter"
-                        MouseLeave="WindowCloseButton_MouseLeave"/>
-                    <materialDesign:PackIcon
-                        x:Name="WindowCloseIcon"
-                        Kind="WindowClose"
-                        Foreground="Gray"
-                        VerticalAlignment="Top"
-                        Width="18" Height="18" 
-                        HorizontalAlignment="Right"/>
-                    <Button
-                        VerticalAlignment="Top"
-                        Width="18" 
-                        Height="18" 
-                        HorizontalAlignment="Right"
-                        Background="Transparent" 
-                        BorderBrush="Transparent"
-                        Click="WindowCloseButton_Click"
-                        MouseEnter="WindowCloseButton_MouseEnter"
-                        MouseLeave="WindowCloseButton_MouseLeave"/>
-                </Grid>
-                <!--#endregion-->
-
-            </StackPanel>
-        </Border>
-        <!--#endregion-->
-
         <!--#region Middle Section-->
         <Grid Grid.Row="1">
             <Grid.Background>
-                <LinearGradientBrush />
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#4cb8c4" Offset="0" />
+                    <GradientStop Color="#3cd3ad" Offset="1" />
+                </LinearGradientBrush>
             </Grid.Background>
 
             <Border 
@@ -284,9 +172,7 @@
             BorderBrush="Transparent"
             CornerRadius="0 0 5 5"
             Background="WhiteSmoke"
-            Padding="10"
-            MouseDown="Border_MouseDown"
-            MouseLeftButtonDown="Border_MouseLeftButtonDown">
+            Padding="10">
             <Grid>
                 <TextBlock 
                     Margin="15 0"
