@@ -133,7 +133,7 @@
         <!--#region Middle Section-->
         <Grid Grid.Row="1">
             <Grid.Background>
-                <SolidColorBrush Color="Transparent"/>
+                <LinearGradientBrush />
             </Grid.Background>
 
             <Border 
@@ -250,7 +250,7 @@
                             Foreground="White"
                             MouseEnter="LoginButton_MouseEnter"
                             MouseLeave="LoginButton_MouseLeave"
-                            Command="{Binding Login}">
+                            Command="{Binding LoginCommand}">
                         <Button.Effect>
                             <DropShadowEffect 
                                 Color="#00b330"
