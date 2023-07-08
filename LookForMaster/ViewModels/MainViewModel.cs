@@ -1,4 +1,5 @@
-﻿using LookForMaster.Models.Messages;
+﻿using LookForMaster.Messeges;
+using LookForMaster.Models.Messages;
 using LookForMaster.Services.Base;
 using LookForMaster.ViewModels.Base;
 using System;
@@ -24,8 +25,8 @@ public class MainViewModel : ViewModelBase
     {
         this.messenger = messenger;
 
-        this.messenger.Subscribe<NavigationMessage>((message) => {
-            if (message is NavigationMessage navigationMessage)
+        this.messenger.Subscribe<ViewNavigate>((message) => {
+            if (message is ViewNavigate navigationMessage)
             {
 
                 var viewModelObj = App.DIContainer.GetInstance(navigationMessage.DestinationViewModelType);

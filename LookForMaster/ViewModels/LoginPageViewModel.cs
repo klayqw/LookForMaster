@@ -1,4 +1,7 @@
-﻿using LookForMaster.ViewModels.Base;
+﻿using LookForMaster.Messeges;
+using LookForMaster.Models.Messages.Base;
+using LookForMaster.Services.Base;
+using LookForMaster.ViewModels.Base;
 using Microsoft.Xaml.Behaviors.Core;
 using System;
 using System.Collections.Generic;
@@ -10,6 +13,7 @@ namespace LookForMaster.ViewModels;
 
 public class LoginPageViewModel : ViewModelBase
 {
+    private readonly IMessenger messanger;
     private string email;
 
     public string Email
@@ -42,7 +46,7 @@ public class LoginPageViewModel : ViewModelBase
     private ActionCommand signUpCommand;
     public ActionCommand SignUpCommand
     {
-        get => signUpCommand;
+        get => new ActionCommand(() => messanger.Send(new ViewNavigate(typeof(SignUpPageViewModel))));
         set => base.PropertyChange(out this.signUpCommand, value);
     }
 
@@ -53,9 +57,9 @@ public class LoginPageViewModel : ViewModelBase
         set => base.PropertyChange(out this.loginCommand, value);
     }
 
-    public LoginPageViewModel()
+    public LoginPageViewModel(IMessenger messanger)
     {
-
+        this.messanger = messanger;
     }
 
 }
