@@ -29,7 +29,7 @@ public class SQL
         App.DIContainer.GetInstance<LookForMasterDbContext>().SaveChanges();
     }
 
-    public async static void AddMaster(Masters master)
+    public async static void AddMaster(Master master)
     {
         App.DIContainer.GetInstance<LookForMasterDbContext>().Masters.Add(master);
         App.DIContainer.GetInstance<LookForMasterDbContext>().SaveChanges();
