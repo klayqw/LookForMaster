@@ -35,6 +35,8 @@ public partial class App : Application
         DIContainer.RegisterSingleton<LoginPageViewModel>();
         DIContainer.RegisterSingleton<SignUpPageViewModel>();
         DIContainer.RegisterSingleton<LookForMasterDbContext>();
+        DIContainer.RegisterSingleton<ChoosePageViewModel>();
+        DIContainer.RegisterSingleton<AdminPincodePageViewModel>();
     }
 
     private void WindowStartUp()
