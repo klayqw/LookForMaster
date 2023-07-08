@@ -28,7 +28,7 @@ public class SignUpPageViewModel : ViewModelBase
 
     private ActionCommand signUpCommand;
 
-    public string SignUpCommand
+    public ActionCommand SignUpCommand
     {
         get => signUpCommand;
         set => base.PropertyChange(out signUpCommand, value);
