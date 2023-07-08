@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BookStore.Data
 {
-    public class BookStoreDbContext : DbContext
+    public class LookForMasterDbContext : DbContext
     {
         private const string connectionString = $"Server=localhost;Database=LookForMasterDb;User Id=admin;Password=admin;TrustServerCertificate=True;";
         public DbSet<User> Users { get; set; }
