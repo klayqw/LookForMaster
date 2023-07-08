@@ -7,14 +7,24 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.LightGreen.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
 
-        <DataTemplate DataType="{x:Type vm:LoginPageViewModel}">
-            <v:LoginPage/>
-        </DataTemplate>
+            </ResourceDictionary.MergedDictionaries>
 
-        <DataTemplate DataType="{x:Type vm:SignUpPageViewModel}">
-            <v:SignUpPage/>
-        </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:LoginPageViewModel}">
+                <v:LoginPage/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:SignUpPageViewModel}">
+                <v:SignUpPage/>
+            </DataTemplate>
+        </ResourceDictionary>
 
 
     </Application.Resources>
