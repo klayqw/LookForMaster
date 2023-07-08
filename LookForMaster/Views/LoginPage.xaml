@@ -3,10 +3,315 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:LookForMaster.Views"
+             xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+             d:DesignHeight="720" d:DesignWidth="1024">
+
+    <Grid Background="WhiteSmoke">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <!--#region Top Section-->
+        <Border 
+            BorderThickness="0 0 0 2"
+            BorderBrush="Transparent"
+            CornerRadius="5 5 0 0"
+            Background="Transparent"
+            Padding="10"
+            MouseDown="Border_MouseDown"
+            MouseLeftButtonDown="Border_MouseLeftButtonDown"
+            Height="40">
+
+            <StackPanel
+                HorizontalAlignment="Right"
+                Orientation="Horizontal">
+
+                <!--#region Window Minimize Button-->
+                <Grid Margin="15 0 0 0">
+                    <Button 
+                        x:Name="WindowMinimizeButton"
+                        BorderBrush="Transparent"
+                        Background="Transparent"
+                        VerticalAlignment="Top"
+                        Width="18" Height="18" 
+                        HorizontalAlignment="Right"
+                        Click="WindowMinimizeButton_Click"
+                        MouseEnter="WindowMinimizeButton_MouseEnter"
+                        MouseLeave="WindowMinimizeButton_MouseLeave"/>
+                    <materialDesign:PackIcon
+                        x:Name="WindowMinimizeIcon"
+                        Kind="WindowMinimize" 
+                        Foreground="Gray"
+                        VerticalAlignment="Top"
+                        Width="18" Height="18" 
+                        HorizontalAlignment="Right"/>
+                    <Button
+                        VerticalAlignment="Top"
+                        Width="18" 
+                        Height="18" 
+                        HorizontalAlignment="Right"
+                        Background="Transparent" 
+                        BorderBrush="Transparent"
+                        Click="WindowMinimizeButton_Click"
+                        MouseEnter="WindowMinimizeButton_MouseEnter"
+                        MouseLeave="WindowMinimizeButton_MouseLeave"/>
+                </Grid>
+                <!--#endregion-->
+
+                <!--#region Window Maximize Button-->
+                <Grid Margin="15 0 0 0">
+                    <Button 
+                        x:Name="WindowMaximizeButton"
+                        BorderBrush="Transparent"
+                        Background="Transparent"
+                        VerticalAlignment="Top"
+                        Width="18" Height="18" 
+                        HorizontalAlignment="Right"
+                        Click="WindowMaximizeButton_Click"
+                        MouseEnter="WindowMaximizeButton_MouseEnter"
+                        MouseLeave="WindowMaximizeButton_MouseLeave"/>
+                    <materialDesign:PackIcon
+                        x:Name="WindowMaximizeIcon"
+                        Kind="WindowMaximize" 
+                        Foreground="Gray"
+                        VerticalAlignment="Top"
+                        Width="18" Height="18" 
+                        HorizontalAlignment="Right"/>
+                    <Button
+                        VerticalAlignment="Top"
+                        Width="18" 
+                        Height="18" 
+                        HorizontalAlignment="Right"
+                        Background="Transparent" 
+                        BorderBrush="Transparent"
+                        Click="WindowMaximizeButton_Click"
+                        MouseEnter="WindowMaximizeButton_MouseEnter"
+                        MouseLeave="WindowMaximizeButton_MouseLeave"/>
+                </Grid>
+                <!--#endregion-->
+
+                <!--#region Window Close Button-->
+                <Grid Margin="15 0 0 0">
+                    <Button 
+                        x:Name="WindowCloseButton"
+                        BorderBrush="Transparent"
+                        Background="Transparent"
+                        VerticalAlignment="Top"
+                        Width="18" Height="18" 
+                        HorizontalAlignment="Right"
+                        Click="WindowCloseButton_Click"
+                        MouseEnter="WindowCloseButton_MouseEnter"
+                        MouseLeave="WindowCloseButton_MouseLeave"/>
+                    <materialDesign:PackIcon
+                        x:Name="WindowCloseIcon"
+                        Kind="WindowClose"
+                        Foreground="Gray"
+                        VerticalAlignment="Top"
+                        Width="18" Height="18" 
+                        HorizontalAlignment="Right"/>
+                    <Button
+                        VerticalAlignment="Top"
+                        Width="18" 
+                        Height="18" 
+                        HorizontalAlignment="Right"
+                        Background="Transparent" 
+                        BorderBrush="Transparent"
+                        Click="WindowCloseButton_Click"
+                        MouseEnter="WindowCloseButton_MouseEnter"
+                        MouseLeave="WindowCloseButton_MouseLeave"/>
+                </Grid>
+                <!--#endregion-->
+
+            </StackPanel>
+        </Border>
+        <!--#endregion-->
+
+        <!--#region Middle Section-->
+        <Grid Grid.Row="1">
+            <Grid.Background>
+                <LinearGradientBrush />
+            </Grid.Background>
+
+            <Border 
+                Width="300"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                BorderBrush="#E2E9E9"
+                BorderThickness="2"
+                CornerRadius="10"
+                Padding="30"
+                Background="WhiteSmoke">
+
+                <StackPanel>
+                    <TextBlock
+                        Foreground="#5a5a5a"
+                        FontWeight="SemiBold"
+                        FontSize="16"
+                        Margin="0 0 0 10"
+                        Text="Login"/>
+
+                    <!--#region Username-->
+                    <Grid>
+                        <TextBox x:Name="EmailTextBox"
+                                 Margin="40 0 10 0"
+                                 materialDesign:HintAssist.FloatingOffset="0,-20"
+                                 materialDesign:HintAssist.Hint="Email"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 materialDesign:TextFieldAssist.UnderlineBrush="#00b330"
+                                 materialDesign:HintAssist.Foreground="#00b330" 
+                                 CaretBrush="#00b330"
+                                 SelectionBrush="#00b330"
+                                 Text="{Binding Email}"/>
+                        <materialDesign:PackIcon
+                            Kind="EmailVariant"
+                            Width="15"
+                            Foreground="#c7c7c7"
+                            VerticalAlignment="Center"
+                            Margin="10 13 0 0"/>
+                        <Label 
+                            Content="{Binding ErrorEmail}"
+                            Foreground="Red"
+                            FontSize="11"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Bottom"
+                            Margin="37 0 0 -19"/>
+                    </Grid>
+                    <!--#endregion-->
+
+                    <!--#region Password-->
+                    <Grid Margin="0 10 0 0">
+                        <TextBox x:Name="PasswordTextBox"
+                                 Margin="40 10 10 0"
+                                 materialDesign:HintAssist.FloatingOffset="0,-20"
+                                 materialDesign:HintAssist.Hint="Password"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 materialDesign:TextFieldAssist.UnderlineBrush="#00b330"
+                                 materialDesign:HintAssist.Foreground="#00b330" 
+                                 CaretBrush="#00b330"
+                                 SelectionBrush="#00b330"
+                                 Text="{Binding Password}"/>
+                        <materialDesign:PackIcon
+                            Kind="LockOutline"
+                            Width="15"
+                            Foreground="#c7c7c7"
+                            VerticalAlignment="Center"
+                            Margin="10 23 0 0"/>
+                        <Label 
+                            Content="{Binding ErrorPassword}"
+                            Foreground="Red"
+                            FontSize="11"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Bottom"
+                            Margin="37 0 0 -19"/>
+                    </Grid>
+                    <!--#endregion-->
+
+                    <!--#region Sign Up Button-->
+                    <WrapPanel HorizontalAlignment="Center" 
+                       Margin="0 0 0 0">
+                        <TextBlock Text="Still not registered?"
+                           HorizontalAlignment="Center"
+                           FontSize="13"
+                           FontWeight="Light" 
+                           Margin="0 25 -10 0"
+                           Foreground="#5a5a5a"/>
+
+                        <Button
+                            x:Name="SignUpButton"
+                            Content="Sign Up"
+                            FontSize="11"
+                            Height="30"
+                            Background="Transparent" 
+                            Width="83"
+                            Margin="-5 19 0 0"
+                            FontWeight="Light"
+                            Foreground="#00b330"
+                            BorderBrush="Transparent"
+                            MouseLeave="SignUpButton_MouseLeave"
+                            MouseEnter="SignUpButton_MouseEnter"
+                            Command="{Binding SignUpCommand}"/>
+                    </WrapPanel>
+                    <!--#endregion-->
+
+                    <!--#region Login Button-->
+                    <Button Content="Login" 
+                            x:Name="LoginButton"
+                            IsEnabled="True"
+                            Height="30"
+                            Margin="0 10 0 -15"
+                            Background="#00b330"
+                            FontSize="13"
+                            FontWeight="DemiBold"
+                            BorderBrush="#00b330"
+                            Foreground="White"
+                            MouseEnter="LoginButton_MouseEnter"
+                            MouseLeave="LoginButton_MouseLeave"
+                            Command="{Binding LoginCommand}">
+                        <Button.Effect>
+                            <DropShadowEffect 
+                                Color="#00b330"
+                                Direction="0"
+                                ShadowDepth="0"
+                                BlurRadius="5"/>
+                        </Button.Effect>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                CornerRadius="10">
+                                    <ContentPresenter HorizontalAlignment="Center" 
+                                              VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <!--#endregion-->
+
+                </StackPanel>
+
+            </Border>
+        </Grid>
+        <!--#endregion-->
+
+        <!--#region Botton Section-->
+        <Border Grid.Row="2"
+            BorderThickness="0 0 0 2"
+            BorderBrush="Transparent"
+            CornerRadius="0 0 5 5"
+            Background="WhiteSmoke"
+            Padding="10"
+            MouseDown="Border_MouseDown"
+            MouseLeftButtonDown="Border_MouseLeftButtonDown">
+            <Grid>
+                <TextBlock 
+                    Margin="15 0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    FontSize="13"
+                    Foreground="#909090"
+                    Text="© 2023 Look For Master"/>
+                <StackPanel 
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Margin="10">
+                    <TextBlock
+                        Foreground="#5e5e5e"
+                        Margin="13 0"
+                        Text="SignUp"/>
+                    <TextBlock 
+                        Foreground="#00b330"
+                        Margin="13 0"
+                        Text="Login"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+        <!--#endregion-->
+
     </Grid>
+
 </UserControl>
