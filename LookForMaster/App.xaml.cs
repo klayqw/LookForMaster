@@ -9,6 +9,7 @@ using LookForMaster.Services.Base;
 using LookForMaster.Services;
 using LookForMaster.ViewModels;
 using SimpleInjector;
+using BookStore.Data;
 
 namespace LookForMaster;
 
@@ -33,6 +34,7 @@ public partial class App : Application
         DIContainer.RegisterSingleton<MainViewModel>();
         DIContainer.RegisterSingleton<LoginPageViewModel>();
         DIContainer.RegisterSingleton<SignUpPageViewModel>();
+        DIContainer.RegisterSingleton<LookForMasterDbContext>();
     }
 
     private void WindowStartUp()
