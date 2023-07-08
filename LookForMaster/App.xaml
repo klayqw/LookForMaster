@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:LookForMaster"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        
+
 
         <DataTemplate DataType="{x:Type vm:LoginPageViewModel}">
             <v:LoginPage/>

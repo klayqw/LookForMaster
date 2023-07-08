@@ -5,6 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using LookForMaster.Services.Base;
+using LookForMaster.Services;
 using LookForMaster.ViewModels;
 using SimpleInjector;
 
@@ -27,7 +29,10 @@ public partial class App : Application
 
     private void ConfigureConatiner()
     {
-
+        DIContainer.RegisterSingleton<IMessenger, Messenger>();
+        DIContainer.RegisterSingleton<MainViewModel>();
+        DIContainer.RegisterSingleton<LoginPageViewModel>();
+        DIContainer.RegisterSingleton<SignUpPageViewModel>();
     }
 
     private void WindowStartUp()
