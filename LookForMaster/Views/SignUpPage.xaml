@@ -4,11 +4,181 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:LookForMaster.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    
+             d:DesignHeight="720" d:DesignWidth="1024">
+
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <!--#region Middle Section-->
+        <Grid Grid.Row="1">
+
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#4cb8c4" Offset="0" />
+                    <GradientStop Color="#3cd3ad" Offset="1" />
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <Border 
+                Width="300"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                BorderBrush="#E2E9E9"
+                BorderThickness="3"
+                CornerRadius="10"
+                Padding="30"
+                Background="White">
+
+                <StackPanel>
+                    <TextBlock
+                        Foreground="#5a5a5a"
+                        FontWeight="SemiBold"
+                        FontSize="16"
+                        Margin="0 0 0 10"
+                        Text="Sign Up"/>
+
+                    <!--#region Name-->
+                    <Grid>
+                        <TextBox x:Name="NameTextBox"
+                                 Margin="40 10 10 0"
+                                 materialDesign:HintAssist.FloatingOffset="0,-20"
+                                 materialDesign:HintAssist.Hint="Nickname"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 materialDesign:TextFieldAssist.UnderlineBrush="#00b330"
+                                 materialDesign:HintAssist.Foreground="#00b330" 
+                                 CaretBrush="#00b330"
+                                 SelectionBrush="#00b330"
+                                 Text="{Binding Nickname}">
+                        </TextBox>
+                        <materialDesign:PackIcon
+                            Kind="Account"
+                            Width="15"
+                            Foreground="#c7c7c7"
+                            VerticalAlignment="Center"
+                            Margin="10 23 0 0"/>
+                    </Grid>
+                    <!--#endregion-->
+
+                    <!--#region Email-->
+                    <Grid>
+                        <TextBox x:Name="EmailTextBox"
+                                 Margin="40 20 10 0"
+                                 materialDesign:HintAssist.FloatingOffset="0,-20"
+                                 materialDesign:HintAssist.Hint="Email"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 materialDesign:TextFieldAssist.UnderlineBrush="#00b330"
+                                 materialDesign:HintAssist.Foreground="#00b330" 
+                                 CaretBrush="#00b330"
+                                 SelectionBrush="#00b330"
+                                 Text="{Binding Email}"/>
+                        <materialDesign:PackIcon
+                            Kind="EmailVariant"
+                            Width="15"
+                            Foreground="#c7c7c7"
+                            VerticalAlignment="Center"
+                            Margin="10 33 0 0"/>
+                    </Grid>
+                    <!--#endregion-->
+
+                    <!--#region Password-->
+                    <Grid>
+                        <TextBox x:Name="PasswordTextBox"
+                                 Margin="40 20 10 0"
+                                 materialDesign:HintAssist.FloatingOffset="0,-20"
+                                 materialDesign:HintAssist.Hint="Password"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 materialDesign:TextFieldAssist.UnderlineBrush="#00b330"
+                                 materialDesign:HintAssist.Foreground="#00b330" 
+                                 CaretBrush="#00b330"
+                                 SelectionBrush="#00b330"
+                                 Text="{Binding Password}"/>
+                        <materialDesign:PackIcon
+                            Kind="LockOutline"
+                            Width="15"
+                            Foreground="#c7c7c7"
+                            VerticalAlignment="Center"
+                            Margin="10 33 0 0"/>
+                    </Grid>
+                    <!--#endregion-->
+
+                    <!--#region Sign Up Button-->
+                    <Button Content="Sign Up" 
+                            x:Name="SignUpButton"
+                            Height="30"
+                            Margin="0 20 0 -15"
+                            Background="#00b330"
+                            FontSize="13"
+                            FontWeight="DemiBold"
+                            BorderBrush="#00b330"
+                            Foreground="White"
+                            MouseEnter="SigUpButton_MouseEnter"
+                            MouseLeave="SigUpButton_MouseLeave"
+                            Command="{Binding SignUpCommand}">
+                        <Button.Effect>
+                            <DropShadowEffect
+                                Color="#00b330"
+                                Direction="0"
+                                ShadowDepth="0"
+                                BlurRadius="5"/>
+                        </Button.Effect>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                CornerRadius="10">
+                                    <ContentPresenter HorizontalAlignment="Center" 
+                                              VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <!--#endregion-->
+
+                </StackPanel>
+
+            </Border>
+        </Grid>
+        <!--#endregion-->
+
+        <!--#region Botton Section-->
+        <Border Grid.Row="2"
+            BorderThickness="0 0 0 2"
+            BorderBrush="Transparent"
+            CornerRadius="0 0 5 5"
+            Background="WhiteSmoke"
+            Padding="10">
+            <Grid>
+                <TextBlock 
+                    Margin="15 0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    FontSize="13"
+                    Foreground="#909090"
+                    Text="© 2023 Look For Master"/>
+                <StackPanel 
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Margin="10">
+                    <TextBlock
+                        Foreground="#00b330"
+                        Margin="13 0"
+                        Text="SignUp"/>
+                    <TextBlock 
+                        Foreground="#5e5e5e"
+                        Margin="13 0"
+                        Text="Login"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+        <!--#endregion-->
+
     </Grid>
-    
+
 </UserControl>
