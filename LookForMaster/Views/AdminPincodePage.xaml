@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="LookForMaster.Views.AdminPincodePage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LookForMaster.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="250" d:DesignWidth="400">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#4cb8c4" Offset="0" />
+                <GradientStop Color="#3cd3ad" Offset="1" />
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <StackPanel VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+            Orientation="Vertical">
+            <TextBox
+                     materialDesign:HintAssist.FloatingOffset="0,-20"
+                     materialDesign:HintAssist.Hint="Admin Pincode"
+                     Height="40"
+                     Width="300"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     materialDesign:TextFieldAssist.UnderlineBrush="#00b330"
+                     materialDesign:HintAssist.Foreground="#00b330" 
+                     CaretBrush="#00b330"
+                     SelectionBrush="#00b330"
+                     Text="{Binding AdminEnterCommand}"/>
+
+            <Button 
+                Content="Enter"
+                Margin="0 20 0 0"
+                Command="{Binding EnterCommand}">
+                
+            </Button>
+        </StackPanel>
+    </Grid>
+    
+</UserControl>
