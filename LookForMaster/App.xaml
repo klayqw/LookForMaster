@@ -24,7 +24,19 @@
             <DataTemplate DataType="{x:Type vm:SignUpPageViewModel}">
                 <v:SignUpPage/>
             </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:ChoosePageViewModel}">
+                <v:ChoosePage/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:AdminPincodePageViewModel}">
+                <v:AdminPincodePage/>
+            </DataTemplate>
+
         </ResourceDictionary>
+
+
+        
 
 
     </Application.Resources>

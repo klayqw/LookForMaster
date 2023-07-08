@@ -41,7 +41,7 @@ public partial class App : Application
     {
         var mainView = new MainWindow();
         var mainViewModel = DIContainer.GetInstance<MainViewModel>();
-        mainViewModel.ActiveViewModel = DIContainer.GetInstance<LoginPageViewModel>();
+        mainViewModel.ActiveViewModel = DIContainer.GetInstance<ChoosePageViewModel>();
         mainView.DataContext = mainViewModel;
 
         mainView.ShowDialog();
